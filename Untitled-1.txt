@@ -1,0 +1,10 @@
+Command: "D:\home\site\deployments\tools\deploy.cmd"
+Handling Basic Web Site deployment.
+Creating app_offline.htm
+Error: The specified path, file name, or both are too long. The fully qualified file name must be less than 260 characters, and the directory name must be less than 248 characters.
+KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
+Copying file: 'ClientApp\package-lock.json'
+Copying file: 'ClientApp\node_modules\react-scripts\node_modules\babel-jest\node_modules\babel-plugin-istanbul\node_modules\test-exclude\node_modules\micromatch\node_modules\regex-cache\node_modules\is-equal-shallow\node_modules\is-primitive\package.json'
+Failed exitCode=1, command="kudusync" -v 50  -f "D:\home\site\repository" -t "D:\home\site\wwwroot" -n "D:\home\site\deployments\dcff259e0d153f48dbf59799dc83aaf2acdd9495\manifest" -p "D:\home\site\deployments\e056f2a98294f171cc730959a8a88e5eedfc1ece\manifest" -i ".git;.hg;.deployment;deploy.cmd"
+An error has occurred during web site deployment.
+Error: The specified path, file name, or both are too long. The fully qualified file name must be less than 260 characters, and the directory name must be less than 248 characters.\r\nD:\Program Files (x86)\SiteExtensions\Kudu\80.10314.3823\bin\Scripts\starter.cmd "D:\home\site\deployments\tools\deploy.cmd"
