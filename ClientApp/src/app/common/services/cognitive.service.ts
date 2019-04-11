@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -7,11 +6,11 @@ import { AzureHttpClient } from './azureHttpClient';
 import { BingSearchResponse } from '../models/bingSearchResponse';
 @Injectable()
 export class CognitiveService {
-    bingSearchAPIKey = '';
+    bingSearchAPIKey = '4e2c132dbd45411e962df156f0d1849b';
     constructor(private http: AzureHttpClient) { }
     searchImages(searchTerm: string): Observable<BingSearchResponse> {
-        return this.http.get('https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=${searchTerm}', this.bingSearchAPIKey)
-            .map(response => response.json() as BingSearchResponse)
+        return this.http.get('https://api.cognitive.microsoft.com/bing/v7.0/images/search?q='+searchTerm, this.bingSearchAPIKey)
+            .map(response => response.valueOf() as BingSearchResponse)
             .catch(this.handleError);
     }
     private handleError(error: any): Promise<any> {
