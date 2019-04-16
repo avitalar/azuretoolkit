@@ -11,7 +11,7 @@ export class UserService {
     private originUrl: string;
     private aadUser: AADUser;
 
-    constructor(private http: HttpClient, @Inject('ORIGIN_URL')originUrl: string) {
+    constructor(private http: HttpClient, @Inject('https://avitalazure.azurewebsites.net/')originUrl: string) {
         this.originUrl = originUrl;
     }
     public getUser(): Observable<User> {
@@ -19,10 +19,10 @@ export class UserService {
             .map(response => {
                 try {
                     this.aadUser = response[0] as AADUser;
-   
+
                     const user = new User();
                     user.userId = this.aadUser.user_id;
-   
+
                     this.aadUser.user_claims.forEach(claim => {
                         switch (claim.typ) {
                             case "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname":
@@ -33,10 +33,9 @@ export class UserService {
                                 break;
                         }
                     });
-   
+
                     return user;
-                }
-                catch (Exception) {
+                } catch (Exception) {
                     console.log('Error: ${Exception}');
                 }
             }).catch(this.handleError);
