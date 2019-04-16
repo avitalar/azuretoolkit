@@ -11,11 +11,11 @@ export class UserService {
     private originUrl: string;
     private aadUser: AADUser;
 
-    constructor(private http: HttpClient, @Inject('ORIGIN_URL')originUrl: string) {
-        this.originUrl = originUrl;
+    constructor(private http: HttpClient) {
+       // this.originUrl = originUrl;
     }
     public getUser(): Observable<User> {
-        return this.http.get('${this.originUrl}/.auth/me')
+        return this.http.get('https://avitalazure.azurewebsites.net/.auth/me')
             .map(response => {
                 try {
                     this.aadUser = response[0] as AADUser;
