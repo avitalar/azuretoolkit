@@ -39,7 +39,7 @@ export class SearchComponent {
         window.scroll(0, 0);
     }
     saveImage() {
-        let transferObject = {
+        const transferObject = {
             url: this.currentItem.thumbnailUrl,
             encodingFormat: this.currentItem.encodingFormat,
             id: this.currentItem.imageId
