@@ -15,7 +15,7 @@ import 'rxjs/add/operator/map';
      public saveImage(imagePostRequest: { url: string, id: string, encodingFormat: string}): Observable<boolean> {
         return this.http.post('https://avitalazure.azurewebsites.net/api/images', imagePostRequest)
             .map(response => {
-                return response.ok;
+                return response;
             }).catch(this.handleError);
     }
 
